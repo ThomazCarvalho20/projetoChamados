@@ -1,0 +1,85 @@
+/* src/main/resources/static/css/formStyle.css */
+
+/* Fundo da página */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Container do formulário */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Título do formulário */
+h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 600;
+}
+
+/* Inputs e Textareas */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Botões */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Botão secundário */
+a.btn-cancel {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+a.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+/* Mensagens de erro */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+/* Form alinhado */
+.d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

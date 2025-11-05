@@ -1,0 +1,194 @@
+/* ==============================
+   GERAL
+============================== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* ==============================
+   LOGIN
+============================== */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e9ecef;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    font-weight: bold;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.erro-msg {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ==============================
+   DASHBOARD
+============================== */
+
+.topo {
+    background-color: #0b6240;
+    color: white;
+    padding: 10px 20px;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+}
+
+.menu-lateral {
+    background-color: #0f3340;
+    width: 220px;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+}
+
+.menu-lateral button { 
+    background-color: #495057;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.menu-lateral ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-lateral li {
+    margin-bottom: 10px;
+}
+
+.menu-lateral a {
+    color: white;
+    text-decoration: none;
+    display: block;
+
+    padding: 8px;
+    border-radius: 4px;
+    transition: left .25s ease;
+    z-index: 20;
+}
+.menu-label {
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #90a4c3;
+    margin: .75rem 0 .25rem;
+}
+
+.menu-lateral a:hover {
+    background-color: #007bff;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.barra-pesquisa {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    
+}
+
+.barra-pesquisa input {
+    padding: 8px 12px;
+    width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.473);
+}
+
+.barra-pesquisa button {
+    margin-top: 0px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.473);
+    
+}
+
+/* TABELA DE CHAMADOS */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; 
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+}
+
+th {
+    background-color: #ffffff;
+}
+
+tr:hover {
+    background-color: #ffffff;
+}
+
+.logo-unincor {
+    max-width: 250px;
+    height: auto;
+}
+

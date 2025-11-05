@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="login :: head('Página Inicial')"></head>
+<body th:replace="login :: login('Página Inicial', ~{::content})">
+    <div th:fragment="content">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <h3>Bem-vindo ao Sistema!</h3>
+        </div>
+    </div>
+</body>
+</html>

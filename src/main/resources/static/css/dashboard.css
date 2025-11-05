@@ -1,0 +1,114 @@
+/* Painel de status (cards de resumo) */
+.painel-status {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 2px solid #000;
+    background-color: #0f3340;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+}
+
+.status-card {
+    flex: 1;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.status-card h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.status-card span {
+    display: block;
+    margin-top: 5px;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+/* Cores de cada status */
+.aberto {
+    background-color: #00df82; /* amarelo claro */
+}
+
+.em-andamento {
+    background-color: #00df82; /* azul claro */
+}
+
+.finalizado {
+    background-color: #00df82; /* verde claro */
+}
+
+.cancelado {
+    background-color: #00df82; /* vermelho claro */
+}
+
+/* Barra de pesquisa */
+.barra-pesquisa {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.barra-pesquisa input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.barra-pesquisa button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #e9ecef;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.barra-pesquisa button:hover {
+    background-color: #dee2e6;
+}
+
+/* Tabela de chamados */
+table {
+    width: 100%;
+    border-collapse: separate;
+}
+
+.table-chamados{
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ffffff;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

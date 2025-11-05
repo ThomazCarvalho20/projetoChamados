@@ -1,0 +1,65 @@
+<!-- src/main/resources/templates/chamados/form.html -->
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Chamado</title>
+    <link rel="stylesheet" th:href="@{/css/formStyle.css}">
+</head>
+
+<body>
+<div>
+    <div th:fragment="content">
+        <div class="container mt-4">
+            <h1 th:text="${titulo}" class="mb-4"></h1>
+
+            <form th:action="@{/chamados-site}" th:object="${chamado}" method="post">
+                <!-- Hidden para ID (edição) -->
+                <input type="hidden" th:field="*{id}"/>
+
+                <!-- Título -->
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input type="text" th:field="*{titulo}" class="form-control" id="titulo" placeholder="Digite o título">
+                    <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+                </div>
+
+                <!-- Descrição -->
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea th:field="*{descricao}" class="form-control" id="descricao" rows="4" placeholder="Digite a descrição"></textarea>
+                    <div class="text-danger" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div>
+                </div>
+
+                <!-- Status -->
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select th:field="*{status}" class="form-select" id="status">
+                        <option value="">-- Selecione --</option>
+                        <option value="ABERTO" th:selected="${chamado.status == 'ABERTO'}">Aberto</option>
+                        <option value="EM_ANDAMENTO" th:selected="${chamado.status == 'EM_ANDAMENTO'}">Em andamento</option>
+                        <option value="FINALIZADO" th:selected="${chamado.status == 'FINALIZADO'}">Finalizado</option>
+                    </select>
+                    <div class="text-danger" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
+                </div>
+
+                <!-- Usuário -->
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuário</label>
+                    <select th:field="*{usuario.id}" class="form-select" id="usuario">
+                        <option value="">-- Selecione --</option>
+                        <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}" th:selected="${chamado.usuario != null} ? ${chamado.usuario.id} == ${u.id} : false"></option>
+                    </select>
+                    <div class="text-danger" th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}"></div>
+                </div>
+
+                <!-- Botões -->
+                <div class="d-flex justify-content-between">
+                    <a th:href="@{/dashboard}" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

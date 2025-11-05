@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title th:text="${title}">Login - Sistema de Chamados</title>
+    <link rel="stylesheet" th:href="@{/css/loginStyle.css}">
+    
+</head>
+<body class="login-page" th:fragment="login(title, content)">
+    <div class="overlay"></div>
+   
+    <div class="login-wrapper">
+        <!-- Lado esquerdo -->
+        <div class="login-left">
+            <img src="/img/logo.png" alt="Logo" class="login-logo">
+        </div>
+
+        <!-- Lado direito -->
+        <div class="login-right">
+            <h2 th:text="${title}">Acesso ao Sistema</h2>
+
+            <form th:action="@{/login}" method="post" class="login-form">
+                <div class="input-group">
+                    <label for="email">Usuário</label>
+                    <input type="text" id="email" name="email" placeholder="Digite seu usuário" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="form-options">
+                    <a href="#">Redefinir/Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Entrar</button>
+
+                <p th:if="${erro}" th:text="${erro}" class="erro-msg"></p>
+            </form>
+
+            <!-- Conteúdo extra passado pelo index.html -->
+            <div th:replace="${content}"></div>
+
+            <div class="login-footer">
+                <p>Plataforma Educacional</p>
+                <img class="logo-unincor" src="/img/logo2.png" alt="Logo-login">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
