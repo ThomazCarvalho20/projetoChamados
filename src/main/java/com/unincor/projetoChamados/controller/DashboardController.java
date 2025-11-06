@@ -21,7 +21,7 @@ public class DashboardController {
 
         long abertos = chamados.stream().filter(c -> c.getStatus() == StatusChamado.ABERTO).count();
         long andamento = chamados.stream().filter(c -> c.getStatus() == StatusChamado.EM_ANDAMENTO).count();
-        long finalizados = chamados.stream().filter(c -> c.getStatus() == StatusChamado.FINALIZADO).count();
+        long finalizados = chamados.stream().filter(c -> c.getStatus() == StatusChamado.CONCLUIDO).count();
         long cancelados = chamados.stream().filter(c -> c.getStatus() == StatusChamado.CANCELADO).count();
 
         model.addAttribute("abertos", abertos);
