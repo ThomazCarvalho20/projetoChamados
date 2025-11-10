@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${titulo}">Chamado</title>
+    <link rel="shortcut icon" href="img/icon-unincor.png">
     <link rel="stylesheet" th:href="@{/css/formStyle.css}">
 </head>
 
@@ -32,7 +33,7 @@
 
                 <!-- Status -->
                 <div class="mb-3">
-                    <label for="status" class="form-label">Status</label>
+                    <label for="status" class="form-label">Prioridade</label>
                     <select th:field="*{status}" class="form-select" id="status">
                         <option value="">-- Selecione --</option>
                         <option value="ABERTO" th:selected="${chamado.status == 'ABERTO'}">Aberto</option>
@@ -44,7 +45,7 @@
 
                 <!-- Usuário -->
                 <div class="mb-3">
-                    <label for="usuario" class="form-label">Usuário</label>
+                    <label for="usuario" class="form-label">Setor</label>
                     <select th:field="*{usuario.id}" class="form-select" id="usuario">
                         <option value="">-- Selecione --</option>
                         <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}" th:selected="${chamado.usuario != null} ? ${chamado.usuario.id} == ${u.id} : false"></option>
