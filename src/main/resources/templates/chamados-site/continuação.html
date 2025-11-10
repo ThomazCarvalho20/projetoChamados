@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Continuar Chamado</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 th:text="${titulo}">Continuar Chamado</h2>
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">Título:</label>
+        <p th:text="${chamado.titulo}"></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label fw-bold">Descrição atual:</label>
+        <pre th:text="${chamado.descricao}"></pre>
+    </div>
+
+    <form th:action="@{|/chamados-site/${chamado.id}/continuar|}" 
+          th:object="${chamado}" 
+          method="post">
+        <div class="mb-3">
+            <label for="descricao" class="form-label fw-bold">Adicionar Continuação</label>
+            <textarea id="descricao" th:field="*{descricao}" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar Continuação</button>
+        <a th:href="@{/chamados-site}" class="btn btn-secondary ms-2">Voltar</a>
+    </form>
+</div>
+</body>
+</html>

@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${titulo} ?: 'Sistema de Chamados'">Chamados</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="img/icon-unincor.png">
 
     <!-- CSS principal do sistema -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <!-- CSS específico do dashboard -->
     <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 </head>
+
+<!--
+    ACESS
+    LOGIN:teste.chamados@unincor.edu.br
+    PIN:teste@123
+    -->
 
 <!-- Menu Home-->
 
@@ -21,29 +28,46 @@
         <img class="logo-unincor" src="/img/logo2.png" alt="Logo Unincor">
     </header>
 
-    <div class="home-container">
-
-        <div th:fragment="dashboard(titulo, conteudo)" class="menu-lateral">
+    <div th:fragment="dashboard(titulo, conteudo)" class="home-container">
+        <!-- MENU LATERAL -->
+        <div class="menu-lateral">
             <div class="brand mb-3">
                 <div>
                     <div class="fw-bold">Sistema de Chamados</div>
                     <small style="opacity: 0.8;">Painel Administrativo</small>
                 </div>
             </div>
+
             <ul>
-                <div class="menu-label">Menu</div>
-                <a class="nav-link" th:classappend="${active=='chamado' ? ' active' : ''}" th:href="@{/dashboard}">
-                    <span>Home</span>
-                </a>
-                <a class="nav-link" th:classappend="${active=='chamado' ? ' active' : ''}"
-                    th:href="@{/chamados-site/novo}">
-                    <span>Novo Chamado</span>
-                </a>
-                </a>
+                <li class="menu-label">Menu</li>
+                <li>
+                    <a class="nav-link" th:classappend="${active=='chamado' ? ' active' : ''}" th:href="@{/dashboard}">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" th:classappend="${active=='novo' ? ' active' : ''}"
+                        th:href="@{/chamados-site/novo}">
+                        <span>Novo Chamado</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" th:classappend="${active=='novo' ? ' active' : ''}"
+                        th:href="@{/chamados-site/novo}">
+                        <span>Chamados Abertos</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" th:classappend="${active=='novo' ? ' active' : ''}"
+                        th:href="@{/chamados-site/novo}">
+                        <span>Caixa de Entrada</span>
+                    </a>
+                </li>
             </ul>
+
             <hr class="my-4" />
             <div class="small" style="opacity: 0.7;">
-                v0.0.1 * <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}">--/--/----</span>
+                v0.0.1 • <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}">--/--/----</span>
             </div>
         </div>
 
@@ -61,9 +85,9 @@
                     <h3>EM ANDAMENTO</h3>
                     <span th:text="${andamento}">0</span>
                 </div>
-                <div class="status-card finalizado">
-                    <h3>FINALIZADO</h3>
-                    <span th:text="${finalizados}">0</span>
+                <div class="status-card concluido">
+                    <h3>CONCLUIDO</h3>
+                    <span th:text="${concluidos}">0</span>
                 </div>
                 <div class="status-card cancelado">
                     <h3>CANCELADO</h3>
@@ -78,38 +102,48 @@
             </div>
 
             <!-- 🔹 Tabela de chamados -->
-            <div class="table-chamados">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código ⬇</th>
-                            <th>Nome</th>
-                            <th>Título</th>
-                            <th>Status</th>
-                            <th>Atribuído</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="chamado : ${chamados}">
-                            <td th:text="${chamado.id}">1</td>
-                            <!-- Usuário que abriu o chamado -->
-                            <td th:text="${chamado.usuario?.nome != null ? chamado.usuario.nome : '-'}">João</td>
-                            <td th:text="${chamado.titulo}">Erro no sistema</td>
-                            <td th:text="${chamado.status}">ABERTO</td>
-                            <!-- Sem usuário atribuído -->
-                            <td>-</td>
-                            <td>
-                                <button>Editar</button>
-                                <button>Excluir</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="card shadow-sm table-chamados table-chamados-secao">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Código ⬇</th>
+                                <th>Nome</th>
+                                <th>Título</th>
+                                <th>Status</th>
+                                <th>Atribuído</th>
+                                <th>Opções</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="chamado : ${chamados}">
+                                <td th:text="${chamado.id}">1</td>
+                                <!-- Usuário que abriu o chamado -->
+                                <td th:text="${chamado.setor != null ? chamado.setor : '-'}"></td>
+                                <td th:text="${chamado.titulo}">Erro no sistema</td>
+                                <td th:text="${chamado.status}">ABERTO</td>
+                                <!-- Sem usuário atribuído -->
+                                <td>-</td>
+                                <td>
+                                    <a class="btn btn-sm btn-outline-primary me-1"
+                                        th:href="@{|/chamados-site/${chamado.id}/editar|}">Editar</a>
+                                    <form th:action="@{|/chamados-site/${chamado.id}/excluir|}" method="post"
+                                        class="d-inline" onsubmit="return confirm('Excluir este chamado?')">
+                                        <button class="btn btn-sm btn-outline-danger" type="submit">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr th:if="${#lists.isEmpty(chamado)}">
+                                <td colspan="6" class="text-center text-muted py-4">Não há mais chamados.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 
 </html>

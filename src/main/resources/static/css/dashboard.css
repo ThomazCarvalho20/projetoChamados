@@ -43,7 +43,7 @@
     background-color: #00df82; /* azul claro */
 }
 
-.finalizado {
+.concluido {
     background-color: #00df82; /* verde claro */
 }
 
@@ -78,7 +78,7 @@
 }
 
 /* Tabela de chamados */
-table {
+.table-chamados-secao {
     width: 100%;
     border-collapse: separate;
 }
