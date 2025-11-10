@@ -78,7 +78,7 @@ body {
 .home-container {
     display: flex;
     height: calc(100vh - 60px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .menu-lateral {
@@ -86,7 +86,7 @@ body {
     width: 220px;
     color: white;
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .menu-lateral button { 
@@ -128,7 +128,8 @@ body {
 }
 
 .menu-lateral a:hover {
-    background-color: #007bff;
+    background: #0e1b2b;
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, .05);
 }
 
 /* CONTEÚDO PRINCIPAL */
@@ -151,7 +152,7 @@ body {
     width: 350px;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.473);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .barra-pesquisa button {
@@ -162,7 +163,7 @@ body {
     color: white;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.473);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
     
 }
 

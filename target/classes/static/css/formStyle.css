@@ -9,11 +9,11 @@ body {
 /* Container do formulário */
 .container {
     max-width: 700px;
-    margin: 50px auto;
+    margin: 10px auto;
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Título do formulário */
@@ -41,7 +41,87 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    display: block;
 }
+
+.container {
+    max-width: 600px;
+    margin: 10 auto;
+}
+
+form .form-control,
+form .form-select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*Header Novo Chamado*/
+.background-color-header-novo-chamado {
+    background-color: #0b6240;
+    display: flex;
+    justify-content: center;
+    /* centraliza na horizontal */
+    align-items: center;
+}
+
+.form-header {
+    background-color: #0b6240;
+    /* tom claro para destacar */
+    border-bottom: 2px solid #0b6240;
+    /* linha sutil separando o cabeçalho */
+    border-radius: 0.5rem 0.5rem 0 0;
+    /* cantos arredondados superiores */
+    padding: 1px 5px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Título do cabeçalho */
+.form-header h1 {
+    display: flex;
+    justify-content: center;
+    /* centraliza na horizontal */
+    align-items: center;
+    /* centraliza na vertical */
+    text-align: center;
+    font-weight: 600;
+    color: #00df82;
+    margin: 0;
+    background-color: #0b6240;
+}
+
+/* Subtítulo opcional */
+.form-header small {
+    display: flex;
+    justify-content: center;
+    /* centraliza na horizontal */
+    align-items: center;
+    /* centraliza na vertical */
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+    background-color: #0b6240;
+}
+
+/* Botão no cabeçalho (ex: voltar ou cancelar) */
+.form-header .btn-header {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    color: #495057;
+    background-color: transparent;
+    border: 1px solid #0b6240;
+    border-radius: 0.4rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #0b6240;
+}
+
+.form-header .btn-header:hover {
+    background-color: #0b6240;
+    color: #000;
+}
+
 
 /* Botões */
 button {
