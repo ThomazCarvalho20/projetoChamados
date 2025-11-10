@@ -56,7 +56,7 @@
 
             <!-- Usuário -->
             <div class="mb-3">
-                <label for="usuario" class="form-label">Usuário</label>
+                <label for="usuario" class="form-label">Setor</label>
                 <select th:field="*{usuario.id}" class="form-select" id="usuario">
                     <option value="">-- Selecione --</option>
                     <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}"

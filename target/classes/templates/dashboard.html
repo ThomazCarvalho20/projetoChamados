@@ -56,6 +56,12 @@
                         <span>Chamados Abertos</span>
                     </a>
                 </li>
+                <li>
+                    <a class="nav-link" th:classappend="${active=='novo' ? ' active' : ''}"
+                        th:href="@{/chamados-site/novo}">
+                        <span>Caixa de Entrada</span>
+                    </a>
+                </li>
             </ul>
 
             <hr class="my-4" />
